@@ -80,10 +80,10 @@ python main_cli.py --video_dir <путь_к_папке_с_видео> \
                    --subtitle_ass_file <путь_к_файлу.ass> \
                    --output_dir <путь_к_папке_для_результата> \
                    [дополнительные_опции]
-
+```
 
 Обязательные аргументы:
-
+```bash
 -vd, --video_dir: Путь к папке с вашими исходными видеофайлами.
 
 -ad, --audio_dir: Путь к папке с вашими аудиофайлами для фона.
@@ -91,9 +91,10 @@ python main_cli.py --video_dir <путь_к_папке_с_видео> \
 -sub, --subtitle_ass_file: Путь к вашему .ASS файлу субтитров.
 
 -od, --output_dir: Путь к папке, куда будут сохранены готовые видеомонтажи.
-
+```
 Дополнительные опции:
 
+```bash
 -n, --num_montages <число>: Количество видеомонтажей, которое нужно создать. Каждый монтаж будет использовать указанный файл субтитров, но случайный аудиофайл (если их несколько) и случайные видеофрагменты. По умолчанию: 1.
 
 -max_dur, --max_duration <секунды>: Максимальная длительность одного видеомонтажа. Если 0 (по умолчанию), длительность определяется временем окончания последнего субтитра.
@@ -101,25 +102,22 @@ python main_cli.py --video_dir <путь_к_папке_с_видео> \
 -min_dur, --min_duration <секунды>: Минимально допустимая длительность монтажа. Если итоговый монтаж короче, он не будет создан (если значение больше 0). По умолчанию: 0 (нет проверки).
 
 -h, --help: Показать справочное сообщение со всеми аргументами и выйти.
-
+```
 Примеры команд:
 
 Создать один монтаж, используя все субтитры, со случайным аудио:
-
+```bash
 python main_cli.py --video_dir ./input_videos --audio_dir ./input_audio --subtitle_ass_file ./input_subtitles/story.ass --output_dir ./output_videos
-IGNORE_WHEN_COPYING_START
-
-Bash
+```
 
 Создать 3 монтажа, каждый не длиннее 45 секунд:
-
+```bash
 python main_cli.py -vd ./input_videos -ad ./input_audio -sub ./input_subtitles/script.ass -od ./output_videos -n 3 -max_dur 45
-
-Bash
-
+```
 Создать 1 монтаж, который должен быть не короче 30 секунд (если субтитры позволяют):
-
+```bash
 python main_cli.py -vd ./input_videos -ad ./input_audio -sub ./input_subtitles/short_script.ass -od ./output_videos -min_dur 30
-
-Bash
+```
+```bash
 python main_cli.py --video_dir ./input_videos --audio_dir ./input_audio --subtitle_ass_file ./input_subtitles/sub.ass --output_dir ./output_videos --num_montages 1 --max_duration 60 
+```
